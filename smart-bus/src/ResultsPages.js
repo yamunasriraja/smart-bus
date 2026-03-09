@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import "./ResultsPage.css";
+import "./ResultsPages.css";
 
 function ResultsPage() {
 
