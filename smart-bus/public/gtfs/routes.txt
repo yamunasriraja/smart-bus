@@ -1,0 +1,9 @@
+text
+route_id,agency_id,route_short_name,route_long_name,route_type
+1,TNSTC,TN101,Kumbakonam to Chennai,3
+2,TNSTC,TN102,Chennai to Coimbatore,3
+3,TNSTC,TN103,Kumbakonam to Villupuram,3
+4,TNSTC,TN104,Madurai to Trichy,3
+
+
+(3 = bus)

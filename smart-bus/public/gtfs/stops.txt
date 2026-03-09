@@ -1,0 +1,8 @@
+text
+stop_id,stop_name,stop_lat,stop_lon
+1,Chennai,13.0827,80.2707
+2,Kumbakonam,10.9601,79.3845
+3,Villupuram,11.9401,79.4861
+4,Madurai,9.9252,78.1198
+5,Trichy,10.7905,78.7047
+6,Coimbatore,11.0168,76.9558

@@ -1,0 +1,10 @@
+text
+route_id,service_id,trip_id
+1,WEEK,1001
+1,WEEK,1002
+2,WEEK,2001
+2,WEEK,2002
+3,WEEK,3001
+3,WEEK,3002
+4,WEEK,4001
+4,WEEK,4002

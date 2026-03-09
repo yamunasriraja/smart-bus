@@ -1,0 +1,65 @@
+.results-container{
+  min-height:100vh;
+  background:#f5f6fb;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:40px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.results-title{
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.route-info{
+  font-size:18px;
+  color:#555;
+  margin-bottom:30px;
+}
+
+.bus-card{
+  width:400px;
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.bus-card:hover{
+  transform:translateY(-3px);
+}
+
+.bus-number{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.time{
+  display:flex;
+  justify-content:space-between;
+  font-size:16px;
+  color:#444;
+}
+
+.no-bus{
+  color:#888;
+  font-size:18px;
+}
+
+.date{
+  font-size:16px;
+  margin-bottom:20px;
+  color:#666;
+}
+
+.duration{
+  margin-top:10px;
+  font-size:15px;
+  color:#444;
+}
