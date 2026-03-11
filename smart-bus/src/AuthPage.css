@@ -1,0 +1,89 @@
+body{
+background:#f5f7fb;
+}
+
+.auth-wrapper{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.auth-box{
+background:white;
+padding:40px;
+width:350px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.auth-box h2{
+margin-bottom:5px;
+}
+
+.subtitle{
+color:gray;
+margin-bottom:20px;
+}
+
+.auth-box input{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+.login-btn{
+width:100%;
+padding:12px;
+background:#af4f9f;
+border:none;
+color:white;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.login-btn:hover{
+background:#af4f9f;
+}
+
+.divider{
+margin:15px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+color:gray;
+font-size:12px;
+}
+
+.google-btn{
+width:100%;
+padding:10px;
+border:1px solid #ddd;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.google-btn img{
+width:18px;
+}
+
+.signup-text{
+margin-top:15px;
+font-size:13px;
+color:gray;
+}
+
+.signup-text span{
+color:#af4f9f;
+cursor:pointer;
+font-weight:bold;
+}

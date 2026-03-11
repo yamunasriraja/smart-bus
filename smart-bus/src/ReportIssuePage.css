@@ -1,0 +1,42 @@
+.report-container{
+  max-width:400px;
+  margin:60px auto;
+  padding:30px;
+  background:white;
+  border-radius:12px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  text-align:center;
+}
+
+.report-container h2{
+  margin-bottom:20px;
+}
+
+.report-container select,
+.report-container input,
+.report-container textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+.report-container textarea{
+  height:100px;
+  resize:none;
+}
+
+.report-container button{
+  width:100%;
+  padding:12px;
+  background:#007bff;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.report-container button:hover{
+  background:#0056b3;
+}

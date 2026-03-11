@@ -1,119 +1,107 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./SearchBusPage.css";
 
-function SearchBusPage() {
+function SearchBusPage(){
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  return(
 
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
+    <div className="home-container">
 
-  const navigate = useNavigate();
+      {/* Header */}
 
-  const handleFindBus = () => {
+      <div className="top-bar">
 
-    if(!from || !to){
-      alert("Please enter both locations");
-      return;
-    }
-
-    navigate("/results", {
-      state: { from, to }
-    });
-
-  };
-
-  return (
-    <div className="container">
-
-      {/* Navbar */}
-      <nav className="navbar">
-
-        <div 
-          className="menu"
-          onClick={() => setMenuOpen(true)}
-        >
-          ☰
+        <div className="profile">
+          👤 CHALO
         </div>
 
-        <div className="logo">TransitGo</div>
-
-      </nav>
-
-      {/* SIDE MENU */}
-
-      <div className={`side-menu ${menuOpen ? "active" : ""}`}>
-
-        <div 
-          className="close-btn"
-          onClick={() => setMenuOpen(false)}
-        >
-          ✕
+        <div className="location">
+          📍 Chennai Sec
         </div>
-
-        <ul>
-
-          <li>👤 My Details</li>
-
-          <li>
-            📜 Search History
-            <br/>
-            <button className="clear-btn">
-              Clear History
-            </button>
-          </li>
-
-          <li>⚠ Report Issue</li>
-
-          <li>💡 Suggestions & Features</li>
-
-        </ul>
 
       </div>
 
-      {/* Overlay */}
+      {/* Search */}
 
-      {menuOpen && (
-        <div 
-          className="overlay"
-          onClick={() => setMenuOpen(false)}
-        ></div>
-      )}
-
-      {/* Heading */}
-
-      <div className="title">
-        <h1>Discover Your Route</h1>
-        <p>Fast. Simple. Reliable bus travel</p>
+      <div className="search-box">
+        🔍 Find and track your bus
       </div>
 
-      {/* Search Box */}
+      {/* Nearest Stop */}
 
-      <div className="search-card">
+      <div className="section">
 
-        <input type="text"
-         placeholder="From location" 
-         value={from}
-         onChange={(e) => setFrom(e.target.value)}
-         />
+        <div className="section-header">
 
-        <div className="swap">⇅</div>
+          <h3>Nearest bus stop</h3>
 
-        <input type="text"
-         placeholder="To destination" 
-         value={to}
-         onChange={(e) => setTo(e.target.value)}
-         />
+          <span className="link">See all stops</span>
 
-        <button className="find-btn" onClick={handleFindBus}>
-          Find Bus
-        </button>
+        </div>
+
+        <div className="stop-card">
+
+          <div className="stop-title">
+            📍 Kumbakonam
+          </div>
+
+          <div className="distance">
+            1.2 km away
+          </div>
+
+          <hr/>
+
+          <div className="bus-row">
+
+            <div>
+              <b>340K</b>
+              <p>To Chennai KCBT</p>
+            </div>
+
+            <div className="time">
+              11:48 AM
+            </div>
+
+          </div>
+
+          <div className="bus-row">
+
+            <div>
+              <b>307</b>
+              <p>To Chennai CMBT</p>
+            </div>
+
+            <div className="time">
+              01:15 PM
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="link see-buses">
+          See all buses
+        </div>
+
+      </div>
+
+      {/* Map */}
+
+      <div className="section">
+
+        <h3>Buses around you</h3>
+
+        <div className="map-box">
+
+          Map will appear here
+
+        </div>
 
       </div>
 
     </div>
-  );
+
+  )
+
 }
 
-export default SearchBusPage;
+export default SearchBusPage;  

@@ -1,0 +1,55 @@
+.tracker-container{
+  margin:40px 0;
+  position:relative;
+}
+
+.route-line{
+  display:flex;
+  justify-content:space-between;
+  position:relative;
+  align-items:center;
+}
+
+.route-line::before{
+  content:"";
+  position:absolute;
+  top:10px;
+  left:0;
+  right:0;
+  height:4px;
+  background:#e0e0e0;
+}
+
+.stop{
+  position:relative;
+  text-align:center;
+}
+
+.node{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#ccc;
+  z-index:2;
+  position:relative;
+}
+.node.visited{
+  background:#7b6cff;
+}
+
+.route-line::before{
+  background:#e6e3ff;
+}
+
+
+.stop-name{
+  font-size:12px;
+  margin-top:8px;
+}
+
+.bus{
+  position:absolute;
+  top:-30px;
+  font-size:22px;
+  transition: left 0.5s linear;
+}

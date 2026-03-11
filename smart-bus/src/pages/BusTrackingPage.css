@@ -1,0 +1,188 @@
+.tracking-container{
+  min-height:100vh;
+  background:#f4f6fb;
+  font-family:"Segoe UI",sans-serif;
+  padding:30px;
+}
+
+.tracking-card{
+
+  width:700px;
+
+  background:white;
+
+  border-radius:18px;
+
+  padding:30px;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    0 2px 8px rgba(123,108,255,0.15);
+
+  transition:0.3s ease;
+}
+
+.bus-title{
+  font-size:26px;
+  font-weight:700;
+
+  color:#7b6cff;
+
+  margin-bottom:6px;
+}
+
+.route{
+  font-size:16px;
+  color:#444;
+  margin-bottom:10px;
+}
+
+.details{
+  display:flex;
+  justify-content:space-between;
+
+  font-size:13px;
+  color:#777;
+
+  margin-bottom:25px;
+}
+
+.map-toggle{
+
+  background:#7b6cff;
+  color:white;
+
+  border:none;
+  padding:12px 18px;
+
+  border-radius:10px;
+
+  font-size:14px;
+  font-weight:500;
+
+  cursor:pointer;
+
+  margin-top:20px;
+
+  transition:0.25s;
+}
+
+.map-toggle:hover{
+
+  background:#6759ff;
+
+  transform:translateY(-1px);
+
+  box-shadow:0 5px 15px rgba(123,108,255,0.4);
+}
+
+.next-stop{
+
+  margin-top:20px;
+
+  padding:14px;
+
+  background:#f3f2ff;
+
+  border-radius:10px;
+
+  font-size:14px;
+
+  color:#444;
+
+  border-left:4px solid #7b6cff;
+}
+
+.status-bar{
+
+  display:flex;
+  justify-content:space-between;
+
+  margin-top:25px;
+  gap:15px;
+}
+
+.status-box{
+
+  flex:1;
+
+  background:#fafaff;
+
+  padding:16px;
+
+  border-radius:12px;
+
+  text-align:center;
+
+  box-shadow:0 3px 8px rgba(0,0,0,0.05);
+}
+
+.status-title{
+  font-size:12px;
+  color:#777;
+}
+
+.status-value{
+  font-size:18px;
+  font-weight:600;
+  margin-top:4px;
+}
+
+.status-box{
+  text-align:center;
+}
+
+.status-title{
+  font-size:14px;
+  color:#666;
+}
+
+.status-value{
+  font-size:18px;
+  font-weight:600;
+}
+
+.low{
+  color:#2ecc71;
+}
+
+.medium{
+  color:#f39c12;
+}
+
+.high{
+  color:#e74c3c;
+}
+
+.map-container{
+
+  margin-top:20px;
+
+  height:320px;
+
+  border-radius:14px;
+
+  overflow:hidden;
+
+  border:1px solid #eee;
+}
+
+.leaflet-tile {
+  filter: grayscale(30%) brightness(90%);
+}
+
+
+.tracking-container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:linear-gradient(
+    135deg,
+    #f6f5ff,
+    #eef0ff
+  );
+
+  font-family: "Inter", sans-serif;
+}

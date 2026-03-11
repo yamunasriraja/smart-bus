@@ -1,12 +1,16 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./ResultsPages.css";
 
 function ResultsPage() {
+  
 
   const location = useLocation();
+  const navigate = useNavigate();
+ 
 
   const from = location.state?.from;
   const to = location.state?.to;
+  
 
   const buses = [
     {
@@ -59,7 +63,9 @@ function ResultsPage() {
         <div className="no-bus">No buses found</div>
       ) : (
         filteredBuses.map((bus,index)=>(
-          <div className="bus-card" key={index}>
+          <div className="bus-card" 
+          key={index}
+          onClick={() => navigate("/track-bus", {state: { bus: bus }})}>
 
             <div className="bus-number">{bus.busNo}</div>
 
