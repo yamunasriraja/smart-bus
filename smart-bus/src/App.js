@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./AuthPage";
+import SignupPage from "./SignupPage";
 import SearchBusPage from "./SearchBusPage";
 import ResultsPages from "./ResultsPages";
 import ReportIssuePage from "./ReportIssuePage";
@@ -10,7 +11,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AuthPage />} />
-        <Route path="/" element={<SearchBusPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/search" element={<SearchBusPage />} />
         <Route path="/results" element={<ResultsPages />} />
         <Route path="/track-bus" element={<BusTrackingPage />} />
         <Route path="/report" element={<ReportIssuePage />} />

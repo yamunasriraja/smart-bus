@@ -1,59 +1,76 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./firebase";
 import "./ResultsPages.css";
 
-function ResultsPage() {
-  
+function ResultsPages() {
 
   const location = useLocation();
-  const navigate = useNavigate();
- 
 
   const from = location.state?.from;
   const to = location.state?.to;
-  
 
-  const buses = [
-    {
-      busNo: "TNSTC 101",
-      from: "Kumbakonam",
-      to: "Chennai",
-      departure: "06:00 AM",
-      arrival: "12:00 PM"
-    },
-    {
-      busNo: "SETC 205",
-      from: "Chennai",
-      to: "Coimbatore",
-      departure: "08:00 AM",
-      arrival: "04:00 PM"
-    },
-    {
-      busNo: "TNSTC 310",
-      from: "Madurai",
-      to: "Trichy",
-      departure: "07:30 AM",
-      arrival: "09:30 AM"
-    },
-    {
-      busNo: "TNSTC 404",
-      from: "Kumbakonam",
-      to: "Villupuram",
-      departure: "09:00 AM",
-      arrival: "12:30 PM"
-    }
-  ];
+  const [dateTime, setDateTime] = useState(new Date());
+  const [buses, setBuses] = useState([]);
+
+  // Date & Time updater
+  useEffect(() => {
+
+    const timer = setInterval(() => {
+      setDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+
+  }, []);
+
+  // Fetch buses from Firebase
+  useEffect(() => {
+
+    const fetchBuses = async () => {
+
+      try {
+
+        const querySnapshot = await getDocs(collection(db, "buses"));
+
+        const busList = querySnapshot.docs.map(doc => doc.data());
+
+        setBuses(busList);
+
+      } catch (error) {
+
+        console.error("Error fetching buses:", error);
+
+      }
+
+    };
+
+    fetchBuses();
+
+  }, []);
+
+  const date = dateTime.toLocaleDateString();
+  const time = dateTime.toLocaleTimeString();
 
   const filteredBuses = buses.filter(
     (bus) =>
-      bus.from.toLowerCase() === from?.toLowerCase() &&
-      bus.to.toLowerCase() === to?.toLowerCase()
+      bus.from?.toLowerCase() === from?.toLowerCase() &&
+      bus.to?.toLowerCase() === to?.toLowerCase()
   );
 
   return (
 
     <div className="results-container">
 
-      <h1 className="results-title">Available Buses</h1>
+      <div className="date-time-box">
+        <span>{date}</span>
+        <span>{time}</span>
+      </div>
+
+      <h1 className="results-title">
+        Available Buses ({filteredBuses.length})
+      </h1>
 
       <div className="route-info">
         {from} → {to}
@@ -62,16 +79,18 @@ function ResultsPage() {
       {filteredBuses.length === 0 ? (
         <div className="no-bus">No buses found</div>
       ) : (
-        filteredBuses.map((bus,index)=>(
-          <div className="bus-card" 
-          key={index}
-          onClick={() => navigate("/track-bus", {state: { bus: bus }})}>
+        filteredBuses.map((bus, index) => (
+          <div className="bus-card" key={index}>
 
-            <div className="bus-number">{bus.busNo}</div>
+            <div className="bus-number">{bus.BUSNO}</div>
 
             <div className="time">
               <span>Departure : {bus.departure}</span>
               <span>Arrival : {bus.arrival}</span>
+            </div>
+
+            <div className="duration">
+              Distance : {bus.distance} | Travel Time : {bus.duration}
             </div>
 
           </div>
@@ -83,4 +102,4 @@ function ResultsPage() {
   );
 }
 
-export default ResultsPage;
+export default ResultsPages;   

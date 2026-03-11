@@ -1,107 +1,64 @@
 import "./SearchBusPage.css";
 
+import { FaUserCircle } from "react-icons/fa";
+import { MdLocationOn } from "react-icons/md";
+import { IoSearch } from "react-icons/io5";
+import { FaBus } from "react-icons/fa";
+
 function SearchBusPage(){
 
-  return(
+return(
 
-    <div className="home-container">
+<div className="home-container">
 
-      {/* Header */}
+{/* Header */}
 
-      <div className="top-bar">
+<div className="top-bar">
 
-        <div className="profile">
-          👤 CHALO
-        </div>
+<div className="profile">
+<FaUserCircle size={22}/> CHALO
+</div>
 
-        <div className="location">
-          📍 Chennai Sec
-        </div>
+<div className="location">
+<MdLocationOn/> Chennai Sec
+</div>
 
-      </div>
+</div>
 
-      {/* Search */}
+{/* Search */}
 
-      <div className="search-box">
-        🔍 Find and track your bus
-      </div>
+<div className="search-box">
+<IoSearch className="icon"/>
+Find and track your bus
+</div>
 
-      {/* Nearest Stop */}
+{/* Stop */}
 
-      <div className="section">
+<div className="stop-card">
 
-        <div className="section-header">
+<div className="stop-title">
+<MdLocationOn/> Kumbakonam
+</div>
 
-          <h3>Nearest bus stop</h3>
+<div className="bus-row">
 
-          <span className="link">See all stops</span>
+<div>
+<FaBus/> <b>340K</b>
+<p>To Chennai KCBT</p>
+</div>
 
-        </div>
+<div className="time">
+11:48 AM
+</div>
 
-        <div className="stop-card">
+</div>
 
-          <div className="stop-title">
-            📍 Kumbakonam
-          </div>
+</div>
 
-          <div className="distance">
-            1.2 km away
-          </div>
+</div>
 
-          <hr/>
-
-          <div className="bus-row">
-
-            <div>
-              <b>340K</b>
-              <p>To Chennai KCBT</p>
-            </div>
-
-            <div className="time">
-              11:48 AM
-            </div>
-
-          </div>
-
-          <div className="bus-row">
-
-            <div>
-              <b>307</b>
-              <p>To Chennai CMBT</p>
-            </div>
-
-            <div className="time">
-              01:15 PM
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className="link see-buses">
-          See all buses
-        </div>
-
-      </div>
-
-      {/* Map */}
-
-      <div className="section">
-
-        <h3>Buses around you</h3>
-
-        <div className="map-box">
-
-          Map will appear here
-
-        </div>
-
-      </div>
-
-    </div>
-
-  )
+)
 
 }
 
-export default SearchBusPage;  
+export default SearchBusPage;

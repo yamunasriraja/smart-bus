@@ -19,10 +19,10 @@
   color:#555;
   margin-bottom:30px;
 }
-
 .bus-card{
   width:400px;
   background:white;
+  border-left:5px solid #3b82f6;
   border-radius:12px;
   padding:20px;
   margin-bottom:20px;
@@ -56,6 +56,29 @@
   font-size:16px;
   margin-bottom:20px;
   color:#666;
+}
+
+.duration{
+  margin-top:10px;
+  font-size:15px;
+  color:#444;
+}
+
+.date-time-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.date-time-box span{
+  margin-right: 20px;
 }
 
 .duration{
