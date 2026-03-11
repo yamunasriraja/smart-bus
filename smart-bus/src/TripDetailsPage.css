@@ -1,0 +1,51 @@
+.trip-container {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.trip-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.trip-inputs input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.trip-datetime input {
+  width: 48%;
+  padding: 10px;
+  margin-right: 4%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.proceed-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ffb96b;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.proceed-btn:hover {
+  background: #ffaa50;
+}
+
+.recent-trip-card {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  margin-bottom: 10px;
+}

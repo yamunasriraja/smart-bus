@@ -1,64 +1,70 @@
-import "./SearchBusPage.css";
-
+// SearchBusPage.js
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
-import { FaBus } from "react-icons/fa";
+import "./SearchBusPage.css";
 
-function SearchBusPage(){
+function SearchBusPage() {
+  const navigate = useNavigate();
+  const [userLocation, setUserLocation] = useState("Locating...");
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
 
-return(
+  // Get user's location
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          setUserLocation(`Lat:${latitude.toFixed(2)}, Lon:${longitude.toFixed(2)}`);
+        },
+        () => {
+          setUserLocation("Location denied");
+        }
+      );
+    }
+  }, []);
 
-<div className="home-container">
+  const handleProfileClick = () => setShowProfileMenu(!showProfileMenu);
+  const goToTripDetails = () => navigate("/trip-details");
 
-{/* Header */}
+  return (
+    <div className="home-container">
+      {/* Header */}
+      <div className="top-bar">
+        <div className="profile" onClick={handleProfileClick}>
+          <FaUserCircle size={22} /> Profile
+        </div>
+        <div className="location">
+          <MdLocationOn /> {userLocation}
+        </div>
+      </div>
 
-<div className="top-bar">
+      {/* Profile Menu */}
+      {showProfileMenu && (
+        <div className="profile-menu">
+          <p>My Profile</p>
+          <p>My Bookings</p>
+          <p>Settings</p>
+          <p>Logout</p>
+        </div>
+      )}
 
-<div className="profile">
-<FaUserCircle size={22}/> CHALO
-</div>
+      {/* Search Box */}
+      <div className="search-box" onClick={goToTripDetails}>
+        <IoSearch className="icon" /> Find and track your bus
+      </div>
 
-<div className="location">
-<MdLocationOn/> Chennai Sec
-</div>
-
-</div>
-
-{/* Search */}
-
-<div className="search-box">
-<IoSearch className="icon"/>
-Find and track your bus
-</div>
-
-{/* Stop */}
-
-<div className="stop-card">
-
-<div className="stop-title">
-<MdLocationOn/> Kumbakonam
-</div>
-
-<div className="bus-row">
-
-<div>
-<FaBus/> <b>340K</b>
-<p>To Chennai KCBT</p>
-</div>
-
-<div className="time">
-11:48 AM
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-)
-
+      {/* Recent Trips */}
+      <div className="recent-trips">
+        <div className="trip-card">
+          <b>From Kumbakonam</b>
+          <p>To Mayiladuthurai</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default SearchBusPage;
