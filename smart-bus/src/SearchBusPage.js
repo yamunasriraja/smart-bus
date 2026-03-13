@@ -11,23 +11,67 @@ function SearchBusPage() {
   const [userLocation, setUserLocation] = useState("Locating...");
   const [showProfileMenu, setShowProfileMenu] = useState(false);
 
-  // Get user's location
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          const { latitude, longitude } = pos.coords;
-          setUserLocation(`Lat:${latitude.toFixed(2)}, Lon:${longitude.toFixed(2)}`);
-        },
-        () => {
-          setUserLocation("Location denied");
-        }
+//location
+
+useEffect(() => {
+
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+
+    const latitude = pos.coords.latitude;
+    const longitude = pos.coords.longitude;
+
+    try {
+
+      const res = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAM3oTE_RuJhpKGaDk1Kg2iq401mOAqsu8`
       );
+
+      const data = await res.json();
+
+      console.log(data);
+
+      if (data.results && data.results.length > 0) {
+
+      const components = data.results[0].address_components;
+
+const cityObj = components.find(comp =>
+  comp.types.includes("locality") ||
+  comp.types.includes("administrative_area_level_2")
+);
+
+if (cityObj) {
+  setUserLocation(cityObj.long_name);
+} else {
+  setUserLocation(data.results[0].formatted_address);
+}  
+
+      } else {
+
+        setUserLocation("Location unavailable");
+
+      }
+
+    } catch (err) {
+
+      console.log(err);
+      setUserLocation("Location error");
+
     }
-  }, []);
+
+  },
+  () => {
+    setUserLocation("Location denied");
+  });
+
+}, []);
+
+
+
+
+
 
   const handleProfileClick = () => setShowProfileMenu(!showProfileMenu);
-  const goToTripDetails = () => navigate("/trip-details");
+  const goToTripDetails = () => navigate("/trip");
 
   return (
     <div className="home-container">

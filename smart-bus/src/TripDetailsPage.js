@@ -1,60 +1,100 @@
-// TripDetailsPage.js
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { IoArrowBack } from "react-icons/io5";
 import "./TripDetailsPage.css";
+import { IoCalendarOutline, IoTimeOutline } from "react-icons/io5";
 
 function TripDetailsPage() {
+
   const navigate = useNavigate();
-  const [currentLocation, setCurrentLocation] = useState("Locating...");
-  const [destination, setDestination] = useState("");
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  const [time, setTime] = useState(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
 
-  const [recentTrips, setRecentTrips] = useState([
-    { from: "Kumbakonam", to: "Mayiladuthurai" },
-  ]);
+  const [time, setTime] = useState(new Date());
 
+  // Real time clock
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => setCurrentLocation(`Lat:${pos.coords.latitude.toFixed(2)}, Lon:${pos.coords.longitude.toFixed(2)}`),
-        () => setCurrentLocation("Location denied")
-      );
-    }
+
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+
   }, []);
 
-  const handleProceed = () => {
-    if (!destination) return alert("Enter destination");
-    navigate("/results"); // you can pass state if needed
-  };
+  const date = time.toLocaleDateString("en-IN", {
+    weekday: "short",
+    day: "numeric",
+    month: "short"
+  });
+
+  const clock = time.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 
   return (
+
     <div className="trip-container">
-      <h2>Trip Details</h2>
 
-      <div className="trip-card">
-        <div className="trip-inputs">
-          <input type="text" value={currentLocation} readOnly />
-          <input type="text" placeholder="Enter destination" value={destination} onChange={e => setDestination(e.target.value)} />
-        </div>
+      {/* Header */}
 
-        <div className="trip-datetime">
-          <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-          <input type="time" value={time} onChange={e => setTime(e.target.value)} />
-        </div>
+      <div className="trip-header">
 
-        <button className="proceed-btn" onClick={handleProceed}>Proceed</button>
+        <IoArrowBack
+          className="back-icon"
+          onClick={() => navigate(-1)}
+        />
+
+        <h3>Trip Details</h3>
+
       </div>
 
-      <h3>Recent Trips</h3>
-      {recentTrips.map((trip, i) => (
-        <div key={i} className="recent-trip-card">
-          <b>From {trip.from}</b>
-          <p>To {trip.to}</p>
+
+      {/* Trip Card */}
+
+      <div className="trip-card">
+
+        <div className="location-row">
+          <div className="dot"></div>
+          <input type="text" placeholder="Current location" />
         </div>
-      ))}
+
+        <div className="line"></div>
+
+        <div className="location-row">
+          <div className="dot"></div>
+          <input type="text" placeholder="Enter destination" />
+          <button className="swap">⇅</button>
+        </div>
+
+
+        {/* Real Time Date & Time */}
+
+        <div className="trip-options">
+
+  <div className="option-box">
+    <IoCalendarOutline className="option-icon"/>
+    <span>{date}</span>
+  </div>
+
+  <div className="option-box">
+    <IoTimeOutline className="option-icon"/>
+    <span>{clock}</span>
+  </div>
+
+</div>
+
+
+        <button className="proceed-btn">
+          Proceed
+        </button>
+
+      </div>
+
     </div>
+
   );
+
 }
 
 export default TripDetailsPage;

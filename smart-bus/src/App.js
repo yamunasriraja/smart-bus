@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthPage from "./AuthPage";
 import SignupPage from "./SignupPage";
 import SearchBusPage from "./SearchBusPage";
+import TripDetailsPage from "./TripDetailsPage";
 import ResultsPages from "./ResultsPages";
 import ReportIssuePage from "./ReportIssuePage";
 import BusTrackingPage from "./pages/BusTrackingPage";
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<AuthPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/search" element={<SearchBusPage />} />
+        <Route path="/trip" element={<TripDetailsPage/>}/>
         <Route path="/results" element={<ResultsPages />} />
         <Route path="/track-bus" element={<BusTrackingPage />} />
         <Route path="/report" element={<ReportIssuePage />} />

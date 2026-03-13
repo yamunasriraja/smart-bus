@@ -1,51 +1,117 @@
-.trip-container {
-  padding: 15px;
-  font-family: Arial, sans-serif;
+.trip-container{
+padding:20px;
+max-width:420px;
+margin:auto;
+font-family:Arial;
 }
 
-.trip-card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  margin-bottom: 20px;
+.title{
+margin-bottom:15px;
 }
 
-.trip-inputs input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+.trip-card{
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-.trip-datetime input {
-  width: 48%;
-  padding: 10px;
-  margin-right: 4%;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+.location-row{
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-.proceed-btn {
-  width: 100%;
-  padding: 12px;
-  background: #ffb96b;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  margin-top: 10px;
-  cursor: pointer;
+.location-row input{
+flex:1;
+border:none;
+outline:none;
+padding:10px;
 }
 
-.proceed-btn:hover {
-  background: #ffaa50;
+.dot{
+width:10px;
+height:10px;
+background:black;
+border-radius:50%;
 }
 
-.recent-trip-card {
-  background: #fff;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  margin-bottom: 10px;
+.line{
+height:30px;
+border-left:2px solid #ccc;
+margin-left:4px;
+}
+
+.swap{
+border:none;
+background:#eee;
+border-radius:50%;
+padding:6px;
+cursor:pointer;
+}
+
+.trip-options{
+display:flex;
+justify-content:space-between;
+margin:15px 0;
+font-size:13px;
+}
+
+.proceed-btn{
+width:100%;
+background:#af4f9f;
+border:none;
+padding:12px;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.recent-title{
+margin-top:25px;
+}
+
+.recent-card{
+background:white;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.trip-header{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:15px;
+}
+
+.back-icon{
+font-size:22px;
+cursor:pointer;
+}
+
+.back-icon:hover{
+color:#af4f9f;
+}
+
+.trip-options{
+display:flex;
+justify-content:space-between;
+margin:15px 0;
+}
+
+.option-box{
+display:flex;
+align-items:center;
+gap:6px;
+background:#f5f5f5;
+padding:6px 10px;
+border-radius:6px;
+font-size:13px;
+}
+
+.option-icon{
+font-size:16px;
+color:#555;
 }
